@@ -166,19 +166,27 @@ Modified original Documentation pages to include above partail.
 {% include 'shared/swagger_ui' %}
 ...
 ```
+
+Document Page of Developer Portal 
+
+![OpenAPI Docs](images/developer-portal-documentation.png)
+
 ## Test and Result Examples
 
 Developer Portal URL
+
 ```
 https://ocp20-3scale-mt-api3.apps.4865.open.redhat.com/
 ```
 
 3Scale Admin URL (User: ocp20)
+
 ```
 https://ocp20-3scale-mt-api3-admin.apps.4865.open.redhat.com/
 ```
 
-Example cURL for Production URL
+Example cURL for Production URLs
+
 ```
 curl -X GET --header 'Accept: application/json' \
 --header 'user-key: f37f22419dae4cb306ac36830d2be369' \
@@ -189,14 +197,18 @@ curl -X GET --header 'Accept: application/json' \
  'https://catalog-service-production-apicast-ocp20.apps.4865.open.redhat.com:443/products'
 ```
 User with basic plan can call service only 5 hits/hour. Follow show error when limit is exceeded.
+
 ![429 Too Many Requests](images/limit-exceeded.png)
+
 User with Basic can use only READ (GET) operation.
+
 ```
 curl -X POST -v --header 'Accept: application/json' \
 --header 'user-key: 1f72be64429e085ce3f201f20de2264f' \
  'https://catalog-service-production-apicast-ocp20.apps.4865.open.redhat.com:443/product'
 ```
 Response when user does not have rights to Create (POST)
+
 ![403 Fobidden](images/basic-user-cannot-post.png)
 
 ## Authors
