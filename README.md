@@ -1,5 +1,15 @@
 # Advanced Development with ​Red Hat 3scale API Management Assignment
-<!-- TOC -->autoauto- [Advanced Development with ​Red Hat 3scale API Management Assignment](#advanced-development-with-​red-hat-3scale-api-management-assignment)auto    - [Introduction](#introduction)auto    - [API Service Setup section](#api-service-setup-section)auto    - [Methods, Metrics, Rate Limits Setup section](#methods-metrics-rate-limits-setup-section)auto        - [Catalog Application](#catalog-application)auto        - [Inventory Application](#inventory-application)auto    - [User Signup Setup section](#user-signup-setup-section)auto    - [Development Portal and API Docs section](#development-portal-and-api-docs-section)auto        - [Development Portal](#development-portal)auto        - [API Docs](#api-docs)auto    - [Authors](#authors)autoauto<!-- /TOC -->
+
+ * [Introduction](#introduction)
+ * [API Service Setup section](#api-service-setup-section)
+ * [Methods, Metrics, Rate Limits Setup section](#methods-metrics-rate-limits-setup-section)
+ * [Catalog Application](#catalog-application)
+ * [Inventory Application](#inventory-application)
+ * [User Signup Setup section](#user-signup-setup-section)
+    - [Development Portal and API Docs section](#development-portal-and-api-docs-section)
+    - [Development Portal](#development-portal)
+ * [API Docs](#api-docs)
+ * [Authors](#authors)
 
 
 ## Introduction
