@@ -11,6 +11,7 @@ Table of Content
     - [Development Portal and API Docs section](#development-portal-and-api-docs-section)
     - [Development Portal](#development-portal)
  * [API Docs](#api-docs)
+ * [Test & Result Examples](#test--result-examples)
  * [Authors](#authors)
 
 
@@ -165,7 +166,7 @@ Modified original Documentation pages to include above partail.
 {% include 'shared/swagger_ui' %}
 ...
 ```
-Test 
+## Test & Result Examples
 
 Developer Portal URL
 ```
