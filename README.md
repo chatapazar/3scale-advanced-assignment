@@ -73,6 +73,10 @@ Following code are for filter to display only feature name "public"
 ...
 ```
 
+Developer Portal plan show only API with feature name "public" and can register multiple APIs
+![Plan](images/developer-portal-plan.png)
+
+
 ## Development Portal and API Docs section
 ### Development Portal
 For custom look & feel UI, Create new layout [coolstore-layout.liquid](liquid/coolstore-layout.liquid) form default layout and change stylesheet to display new banner.
@@ -96,6 +100,7 @@ For custom look & feel UI, Create new layout [coolstore-layout.liquid](liquid/co
 Banner coolstore.png need to be uploaded
 ![Upload Banner](images/upload-banner.png)
 
+
 Set default Homepage to use our layout
 ![Set Layout](images/homepage-layout.png)
 
@@ -113,6 +118,9 @@ Homepage is slighlty modified for display WebRetail name.
     </div>
 ...
 ```
+
+Developer Portal with new banner
+![Banner](images/developer-portal-banner.png)
 
 ### API Docs
 3Scale support OpenAPI/Swagger with ActiveDocs. Following show activeDocs for Inventory
@@ -157,6 +165,39 @@ Modified original Documentation pages to include above partail.
 {% include 'shared/swagger_ui' %}
 ...
 ```
+Test 
+
+Developer Portal URL
+```
+https://ocp20-3scale-mt-api3.apps.4865.open.redhat.com/
+```
+
+3Scale Admin URL
+User: ocp20
+```
+https://ocp20-3scale-mt-api3-admin.apps.4865.open.redhat.com/
+```
+
+Example cURL for Production URL
+```
+curl -X GET --header 'Accept: application/json' \
+--header 'user-key: f37f22419dae4cb306ac36830d2be369' \
+'https://inventory-service-production-apicast-ocp20.apps.4865.open.redhat.com:443/inventory/329299'
+
+curl -X GET --header 'Accept: application/json' \
+--header 'user-key: 1f72be64429e085ce3f201f20de2264f' \
+ 'https://catalog-service-production-apicast-ocp20.apps.4865.open.redhat.com:443/products'
+```
+User is basic plan can call service only 5 hits/hour. Follow show error when limit is exceeded.
+![429 Too Many Requests](images/limit-exceeded.png)
+User with Basic can use only READ (GET) operation.
+```
+curl -X POST -v --header 'Accept: application/json' \
+--header 'user-key: 1f72be64429e085ce3f201f20de2264f' \
+ 'https://catalog-service-production-apicast-ocp20.apps.4865.open.redhat.com:443/product'
+```
+Response when user does not have rights to Create (POST)
+![403 Fobidden](images/basic-user-cannot-post.png)
 
 ## Authors
 
