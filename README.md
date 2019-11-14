@@ -11,7 +11,7 @@ Table of Content
     - [Development Portal and API Docs section](#development-portal-and-api-docs-section)
     - [Development Portal](#development-portal)
  * [API Docs](#api-docs)
- * [Test & Result Examples](#test--result-examples)
+ * [Test and Result Examples](#test-and-result-examples)
  * [Authors](#authors)
 
 
@@ -166,7 +166,7 @@ Modified original Documentation pages to include above partail.
 {% include 'shared/swagger_ui' %}
 ...
 ```
-## Test & Result Examples
+## Test and Result Examples
 
 Developer Portal URL
 ```
@@ -189,7 +189,7 @@ curl -X GET --header 'Accept: application/json' \
 --header 'user-key: 1f72be64429e085ce3f201f20de2264f' \
  'https://catalog-service-production-apicast-ocp20.apps.4865.open.redhat.com:443/products'
 ```
-User is basic plan can call service only 5 hits/hour. Follow show error when limit is exceeded.
+User with basic plan can call service only 5 hits/hour. Follow show error when limit is exceeded.
 ![429 Too Many Requests](images/limit-exceeded.png)
 User with Basic can use only READ (GET) operation.
 ```
