@@ -173,8 +173,7 @@ Developer Portal URL
 https://ocp20-3scale-mt-api3.apps.4865.open.redhat.com/
 ```
 
-3Scale Admin URL
-User: ocp20
+3Scale Admin URL (User: ocp20)
 ```
 https://ocp20-3scale-mt-api3-admin.apps.4865.open.redhat.com/
 ```
