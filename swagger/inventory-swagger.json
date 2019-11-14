@@ -1,0 +1,64 @@
+{
+    "swagger": "2.0",
+    "info": {},
+    "host": "inventory-service-production-apicast-ocp20.apps.4865.open.redhat.com:443",
+    "basePath": "/",
+    "schemes": ["https"],
+    "tags": [{
+        "name": "inventory"
+    }],
+    "paths": {
+        "/inventory/{itemId}": {
+            "get": {
+                "tags": ["inventory"],
+                "summary": "Get an inventory item",
+                "description": "Returns an Inventory resource",
+                "operationId": "getInventory",
+                "produces": ["application/json"],
+                "parameters": [{
+                        "name": "itemId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "user-key",
+                        "in": "header",
+                        "description": "Your API access key",
+                        "required": true,
+                        "x-data-threescale-name": "user_keys",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Inventory"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inventory": {
+            "type": "object",
+            "properties": {
+                "itemId": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "link": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,220 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Coolstore Catalog Service API",
+    "version": "1.0.0",
+    "title": "Coolstore Catalog Service"
+  },
+  "tags": [
+    {
+      "name": "products",
+      "description": "Retrieve and create products"
+    },
+    {
+      "name": "health",
+      "description": "Application Health Checks"
+    }
+  ],
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "host": "catalog-service-production-apicast-ocp20.apps.4865.open.redhat.com:443",
+  "paths": {
+    "/products": {
+      "get": {
+        "tags": [
+          "products"
+        ],
+        "summary": "Get the list of all products",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+                    "name": "user-key",
+                    "in": "header",
+                    "description": "Your API access key",
+                    "required": true,
+                    "x-data-threescale-name": "user_keys",
+                    "type": "string"
+                }
+         
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/ProductList"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/product/{itemId}": {
+      "get": {
+        "tags": [
+          "products"
+        ],
+        "summary": "Get a product by item Id",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+                    "name": "user-key",
+                    "in": "header",
+                    "description": "Your API access key",
+                    "required": true,
+                    "x-data-threescale-name": "user_keys",
+                    "type": "string"
+                },
+          {
+            "name": "itemId",
+            "in": "path",
+            "description": "The product item Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "404": {
+            "description": "Product not found"
+          },
+          "503": {
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/product": {
+      "post": {
+        "tags": [
+          "products"
+        ],
+        "summary": "Create a product",
+        "description": "",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Product to create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    }
+    
+    
+  },
+  "definitions": {
+    "Product": {
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "example": {
+        "itemId": 319299,
+        "name": "Red Hat Fedora",
+        "desc": "Official Red Hat Fedora",
+        "price": 34.99
+      }
+    },
+    "ProductList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Product"
+      },
+      "example": [
+        {
+          "itemId": 319299,
+          "name": "Red Hat Fedora",
+          "desc": "Official Red Hat Fedora",
+          "price": 34.99
+        },
+        {
+          "itemId": 319299,
+          "name": "Forge Laptop Sticker",
+          "desc": "JBoss Community Forge Project Sticker",
+          "price": 8.5
+        }
+      ]
+    },
+    "Liveness": {
+      "type": "object",
+      "properties": {
+        "check": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LivenessCheck"
+          }
+        },
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "UP",
+            "DOWN"
+          ]
+        }
+      },
+      "example": {
+        "check": [
+          {
+            "id": "health",
+            "status": "UP"
+          }
+        ],
+        "outcome": "UP"
+      }
+    },
+    "LivenessCheck": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "UP",
+            "DOWN"
+          ]
+        }
+      }
+    }
+  }
+}
