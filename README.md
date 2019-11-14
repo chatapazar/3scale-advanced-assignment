@@ -2,6 +2,9 @@
 
 Scenario for assignment is developing a new online retail platform branded "CoolStore" for WebRetail Inc., through which their partners can provide a catalog and inventory to sell products through the platform.
 
+- TOC
+{:toc}
+
 ## API Service Setup section
 
 Following shell scripts are used for  provisioning Catalog and Inventory Service on OpenShift
