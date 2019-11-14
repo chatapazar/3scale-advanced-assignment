@@ -106,6 +106,14 @@
         "summary": "Create a product",
         "description": "",
         "parameters": [
+           {
+                    "name": "user-key",
+                    "in": "header",
+                    "description": "Your API access key",
+                    "required": true,
+                    "x-data-threescale-name": "user_keys",
+                    "type": "string"
+                },
           {
             "in": "body",
             "name": "body",
